@@ -1,0 +1,23 @@
+name: "Upstream Sync"
+
+on:
+  schedule:
+    - cron: "0 */4 * * *" # 每 4 小时运行一次
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "Fork Sync Test Mode"
+        type: string
+        default: "true"
+
+jobs:
+  call-workflow-sync:
+    uses: aliuq/workflows/.github/workflows/sync.yml@master
+    with:
+      ref: main
+      target_sync_branch: main
+      upstream_sync_branch: main
+      upstream_sync_repo: antfu-collective/icones
+      debug: ${{ inputs.debug }}
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
