@@ -1,14 +1,14 @@
-name: "Upstream Sync"
+name: Upstream Sync
 
 on:
   schedule:
-    - cron: "0 */4 * * *" # 每 4 小时运行一次
+    - cron: '0 */4 * * *' # 每 4 小时运行一次
   workflow_dispatch:
     inputs:
       debug:
-        description: "Fork Sync Test Mode"
+        description: Fork Sync Test Mode
         type: string
-        default: "true"
+        default: 'true'
 
 jobs:
   call-workflow-sync:
