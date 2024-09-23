@@ -6,6 +6,15 @@ body {
 
 html.dark {
   background: #181818;
+  color-scheme: dark;
+}
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark);
+}
+html:not(.dark) .shiki,
+html:not(.dark) .shiki span {
+  color: var(--shiki-light);
 }
 
 .btn {
@@ -69,16 +78,27 @@ html.dark {
 }
 
 /* Tootip */
-.v-popper--theme-tooltip .v-popper__inner {
+.v-popper--theme-tooltip .v-popper__inner,
+.v-popper--theme-menu .v-popper__inner {
   --uno: important-bg-base;
 }
 
-.v-popper--theme-tooltip .v-popper__arrow-outer {
+.v-popper--theme-tooltip .v-popper__arrow-outer,
+.v-popper--theme-menu .v-popper__arrow-outer {
   --uno: important-border-none;
 }
 
-.v-popper--theme-tooltip .v-popper__inner {
-  --uno: border border-base;
+.v-popper--theme-tooltip .v-popper__inner,
+.v-popper--theme-menu .v-popper__inner {
+  --uno: border border-base shadow-lg;
+}
+
+.v-popper--theme-menu .v-popper__arrow-outer {
+  visibility: hidden;
+}
+
+.v-popper--theme-menu .v-popper__arrow-inner {
+  visibility: hidden;
 }
 
 /* fallback black svg in dark mode */
